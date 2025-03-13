@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satranç</title>
+    <style>
+        :root{
+            --kare-genislik: 80px;
+            --kare-sayisi-x: 8;
+            --kare-sayisi-y: 8;
+        }
+        .writeHereYourGameClassName{
+            /* width: 500px;
+            height: 500px;
+            border: black solid 2px; */
+            display: grid;
+            grid-template-columns: repeat(var(--kare-sayisi-x), var(--kare-genislik)); /* sütun */
+            grid-template-rows: repeat(var(--kare-sayisi-y), var(--kare-genislik));   /* satır */
+            width: calc(var(--kare-genislik))*var(--kare-sayisi);
+            height: calc(var(--kare-genislik))*var(--kare-sayisi);
+            border: 1px solid #a6a2a2;
+            /* background-color: aqua; */
+        }
+        .siyah {
+    background-color: rgb(135, 135, 135);
+}
+.deleted{
+            cursor: default;
+            border: none;
+            background: transparent;
+        }
+.beyaz {
+    background-color: #a6a2a2;
+}
+.saray{
+    background-color: wheat;
+}
+.secili {
+    background-color: yellow;
+}
+
+img{
+    object-fit: contain;
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    /* width: 40px; */
+}
+        *{
+            background-color: blueviolet;
+        }
+        .kare {
+            width: var(--kare-genislik);
+            height: var(--kare-genislik);
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            border: 1px solid black;
+
+}
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+</head>
+<body>
+    <div class="writeHereYourGameClassName">OYUNBURAYAGELECEK
+        <!-- <div id="satrancTahtasi" style="margin-right: 20px;">
+
+        </div>
+        <button id="oyun">Başlat</button>
+        <button id="sifirla">Sıfırla</button>
+        <section>
+            <h3>Hamleler:</h3>
+            <textarea disabled id="pgn"></textarea>
+        </section> -->
+    </div>
+    <p style="font-size: 100px;" id="sira"></p>
+    <!-- <span class="">V</span> -->
+    <!-- <script src="root.js"></script> -->
+    <!-- <script type="module" src="init.js"></script> -->
+
+    <!--USE THE SCRIPT FILE NAMED INIT, YOU'VE DOWNLOADED-->
+    <!-- <script src="product/init.js" type="module"></script> -->
+    <script src="game.js"></script>
+    <!-- <script>
+        console.log(document.getElementsByClassName("writeHereYourGameClassName"));
+    </script> -->
+</body>
+</html>

@@ -1,0 +1,2 @@
+Proje Yapısı Örneği Teşkil Etmesi Açsıından: https://github.com/ManojSureddi/boggle/blob/master/game.js
+Timur Satrancı Bilgileri: https://www.sihirlifasulyeler.com/ilgincler/timur-satranci

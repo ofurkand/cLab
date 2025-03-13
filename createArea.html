@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 1.5rem;
+            margin: 1px;
+        }
+        :root{
+            --kare-genislik: 80px;
+            /* --kare-sayisi-x: 8;
+            --kare-sayisi-y: 8; */
+        }
+        .contents{
+            display: flex;
+            gap: 2vw;
+        }
+        .area{
+            display: grid;
+            grid-template-columns: repeat(var(--kare-sayisi-x), var(--kare-genislik)); /* sütun */
+            grid-template-rows: repeat(var(--kare-sayisi-y), var(--kare-genislik));   /* satır */
+            /* width: calc(var(--kare-genislik))*var(--kare-sayisi); */
+            /* height: calc(var(--kare-genislik))*var(--kare-sayisi); */
+            /* border: 1px solid #a6a2a2; */
+            /* background-color: goldenrod; */
+        }
+        input{
+            width: 5vw;
+            height: 5vh;
+        }
+        .kare {
+            width: var(--kare-genislik);
+            height: var(--kare-genislik);
+            text-align: center;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            border: 1px solid black;
+        }
+        .siyah {
+            background-color: rgb(135, 135, 135);
+        }
+        .beyaz {
+            background-color: #a6a2a2;
+        }
+        .secili {
+            background-color: yellow;
+        }
+        .deleted{
+            cursor: default;
+            border: none;
+            background: transparent;
+        }
+        pre{
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="contents">
+        <div><label for="x-ekseni">X: </label><input name="x-ekseni" type="number" min="1" value="8"></div>
+        <div><label for="y-ekseni">Y: </label><input name="y-ekseni" type="number" min="1" value="8"></div>
+        <div><input type="checkbox" id="duzgun-cokgen" checked disabled>Kare</div>
+        <button id="save">Save</button>
+    </div>
+    
+    <div class="area"></div>
+
+    <pre>Click the "Save" button whenever you've done with the area adjustments.</pre>
+
+    <script>
+        window.notasyon = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", 
+        "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+        const root = document.documentElement;
+        const x = document.getElementsByTagName("input")[0];
+        const y = document.getElementsByTagName("input")[1];
+        // const z = document.getElementById("duzgun-cokgen");
+        let emptyAreas = [];
+        const btn = document.getElementById("save");
+        root.style.setProperty("--kare-sayisi-x", x.value);
+        root.style.setProperty("--kare-sayisi-y", y.value);
+        fillTheArea();
+        function handleValueChange() {
+            // this.value;
+            if (this.name === "y-ekseni") {
+                root.style.setProperty("--kare-sayisi-y", y.value);
+            }
+            else{
+                root.style.setProperty("--kare-sayisi-x", x.value);
+            }
+            fillTheArea();
+        }
+        function fillTheArea(){
+            document.getElementsByClassName("area")[0].innerHTML = "";
+            let sira = true;
+            for (let indexY = 1; indexY <= y.value; indexY++) {
+                indexY%2==1?sira=true:sira=false;
+                for (let indexX = 1; indexX <= x.value; indexX++) {
+                    let eklenecekKare = document.createElement('div');
+                    eklenecekKare.classList.add('kare');
+                    // (indexX)%indexX==1?sira:sira=!sira;
+                    sira?
+                    eklenecekKare.classList.add('siyah'): eklenecekKare.classList.add('beyaz');
+                    // eklenecekKare.id=`${notasyon[(index-1)%8]}${Math.abs(64-((index-1)-((index-1)%8)))/8}`;
+                    eklenecekKare.id=`${notasyon[indexX-1]}${y.value-indexY+1}`;
+                    eklenecekKare.addEventListener("click", this.squareToggle);
+                    document.getElementsByClassName("area")[0].appendChild(eklenecekKare);   
+                    sira = !sira;
+                }
+            }
+        }
+        function squareToggle() {
+            // !emptyAreas.includes([[notasyon.indexOf(this.id.split("")[0]),parseInt(this.id.split("")[1])]]) ?
+            emptyAreas.push([notasyon.indexOf(this.id.split("")[0]),parseInt(this.id.split("")[1])-1]);
+            // : null;
+            if (this.className = 'delete'){
+                this.classList.remove('delete');
+                // this.classList.add('kare');
+            }else{
+                this.classList.add = 'delete';
+            }
+        }
+        x.addEventListener("input", handleValueChange);
+        y.addEventListener("input", handleValueChange);
+        btn.addEventListener("click",()=>{
+            document.getElementsByTagName("pre")[0].style.backgroundColor="#D2B48C";
+            console.log(emptyAreas);
+            // let squareCheck = [false,false];
+            // if (z) {
+            //     for (let index = 0; index <= y.value; index++) { // 
+                    
+            //     }
+            // }
+            
+            let control = [emptyAreas.filter(([x, y]) => x === x.value),emptyAreas.filter(([x, y]) => y === y.value)];
+            console.log(control);
+
+            document.getElementsByTagName("pre")[0].textContent=
+            `"oyunAlani": {
+                "x": ${x.value},
+                "y": ${y.value},
+                "-": ${JSON.stringify([...new Set(emptyAreas.sort((a, b) => a[0] - b[0]|| a[1] - b[1]).map(JSON.stringify))].map(JSON.parse))}
+            }`
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2 @@
+Append "<script src="x/init.js" type="module"></script>" code into the end of your body element of the page you want to initialize.
+Then, go into the x file and edit the "init.js" file. You need to write there which ID is the area of usage of the game.

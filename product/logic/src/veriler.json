@@ -1,0 +1,104 @@
+{
+    "hareketler":{
+        
+        },
+    "taslar":[
+        {
+            "isim": "Sah",
+            "resimURL": "taslar/sah.svg",
+            "kisaltma":"k",
+            "deger": 999
+        },
+        {
+            "isim": "At",
+            "resimURL": "taslar/at.svg",
+            "kisaltma":"n",
+            "deger": 3
+        },
+        {
+            "isim": "At",
+            "resimURL": "taslar/at-2.svg",
+            "kisaltma":"m",
+            "deger": 3
+        },
+        {
+            "isim": "Fil",
+            "resimURL": "taslar/fil.svg",
+            "kisaltma":"b",
+            "deger": 3
+        },
+        {
+            "isim": "Kale",
+            "resimURL": "taslar/kale.svg",
+            "kisaltma":"r",
+            "deger": 5
+        },
+        {
+            "isim": "Piyon",
+            "kisaltma": "p",
+            "resimURL": "taslar/piyon.svg",
+            "deger": 1
+        },
+        {
+            "isim": "Vezir",
+            "kisaltma": "q",
+            "resimURL": "taslar/vezir.svg",
+            "deger": 9
+        },
+        {
+            "isim": "Deve",
+            "kisaltma": "j",
+            "resimURL": "taslar/deve.svg",
+            "deger": 4
+        },
+        {
+            "isim": "Mancınık",
+            "kisaltma": "d",
+            "resimURL": "taslar/mancinik.svg",
+            "deger": 3
+        },
+        {
+            "isim": "Zürafa",
+            "kisaltma": "z",
+            "resimURL": "taslar/zurafa.svg",
+            "deger": 3
+        },
+        {
+            "isim": "General",
+            "kisaltma": "g",
+            "resimURL": "taslar/general.svg",
+            "deger": 9
+        },
+        {
+            "isim": "Kazık",
+            "kisaltma": "x",
+            "resimURL": "taslar/kazik.svg",
+            "deger": 9
+        }
+    ],
+    "surumler":{
+        "satranc":{
+            "baslangic_konumu":["RNBQKBNR","PPPPPPPP","8","8","8","8","pppppppp","rnbqkbnr"],
+            "icerilenTaslarKisaltmalari":["k","n","b","r","p","q"],
+            "oyunAlani": {
+                "x":8,
+                "y":8,
+                "-":[]
+            }
+        },
+        "timur-satranci":{
+            "baslangic_konumu":["b1j1d1d1j1b",
+            "rm","13","13","13","13","13","13","13","13"],
+            "icerilenTaslarKisaltmalari":["k","m","b","r","p","q","d","j","z","g","x"],
+            "oyunAlani": {
+                "x":13,
+                "y":10, 
+                "-":{
+                    "advanced":{"0":[0,1,2,3,4,5,6,7,9],"12":[0,2,3,4,5,6,7,8,9]},
+                    "classic":[[0,0],[0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,9],
+                [12,0],[12,2],[12,3],[12,4],[12,5],[12,6],[12,7],[12,8],[12,9]]
+                }
+            }
+        }
+    }
+}
