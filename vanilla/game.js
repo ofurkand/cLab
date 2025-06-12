@@ -94,6 +94,7 @@ class Game {
         const root = document.documentElement;
         root.style.setProperty("--kare-sayisi-x", surum.oyunAlani.x);
         root.style.setProperty("--kare-sayisi-y", surum.oyunAlani.y);
+        
         // for (let index = 1; index <= surum.oyunAlani.x*surum.oyunAlani.y; index++) {
         //     let eklenecekKare = document.createElement('div');
         //     eklenecekKare.classList.add('kare');
